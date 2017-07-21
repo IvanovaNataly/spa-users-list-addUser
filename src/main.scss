@@ -1,0 +1,50 @@
+@import "./colors.scss";
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: $background url(./cat.jpg);
+    font-family: "Open Sans";
+    font-weight: 300;
+}
+
+body {
+
+    nav {
+        background: $navBackground;
+        color: $fontColor;
+        box-shadow: 4px 4px 0 2px rgba(0,0,0,.4);
+        padding: 20px;
+        margin: 20px;
+        width: 150px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    ul, li {
+        margin:0;
+        padding:0;
+        list-style: none;
+    }
+
+    main {
+        background: $mainBackground;
+        padding: 20px;
+        margin: 20px;
+        margin-left: 250px;
+
+
+        dt {
+            font-weight: 500;
+        }
+
+        h1, h2, h3 {
+            margin: 10px 0;
+        }
+    }
+
+}
+
+
+

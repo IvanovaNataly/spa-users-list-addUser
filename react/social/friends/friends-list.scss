@@ -1,0 +1,45 @@
+@import "../../colors";
+
+.friends-list {
+  box-sizing: border-box;
+  margin: 20px;
+  background-color: #92a8d1;
+
+  h3 {
+    font-size: 34px;
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  a {
+    color: $fontColor;
+    text-decoration: none;
+
+    .friend-name {
+      font-size: 27px;
+      margin: 0;
+    }
+
+    &.active {
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+      width: 225px;
+      height: 150px;
+      margin: 20px;
+      background-color: #f7cac9;
+      padding: 40px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+  }
+}
