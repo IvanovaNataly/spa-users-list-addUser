@@ -1,5 +1,3 @@
-let $ = require ("jquery");
-
 const FriendsListKey = "friendsListKey";
 
 class FriendsService {

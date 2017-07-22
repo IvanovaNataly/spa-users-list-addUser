@@ -54,9 +54,8 @@ export function getFriendsList(){
                     }
                     dispatch({type: ACTIONS.GET_FRIENDS_LIST_RESPONSE, friends: friendsList})
                 })
-                }) }
-
-
+            })
+    }
 }
 
 export function addToFriends(id) {

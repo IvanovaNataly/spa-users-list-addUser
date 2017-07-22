@@ -21,20 +21,11 @@ function friendsObjectsReducer(state = [], action){
     switch (action.type){
         case GET_FRIENDS_LIST_RESPONSE:
             return [...action.friends];
-        // case ADD_TO_FRIENDS:
-        //     let result = state.find( friend => action.user.id == friend.id );
-        //     if (!result) {
-        //         FriendsService.set([action.user, ...state]);
-        //         return [action.user, ...state]
-        //     }
-        //     else return state;
         case REMOVE_FRIEND:
             return state.filter(friend => friend.id != action.id)
     }
-
     return state;
 }
-
 
 
 export default combineReducers({

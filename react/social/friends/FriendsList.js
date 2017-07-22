@@ -15,7 +15,7 @@ class FriendsList extends React.Component {
     constructor(props){
         super(props);
 
-        this.props.getFriendsList(this.props.friendsIds);
+        this.props.getFriendsList();
     }
 
     removeFriend(id) {
@@ -42,7 +42,6 @@ class FriendsList extends React.Component {
 
 function mapStateToProps(state){
     return {
-        friendsIds: state.friendsList.friendsIds,
         friendsObjects: state.friendsList.friendsObjects
     }
 }
