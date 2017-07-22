@@ -15,7 +15,7 @@ class FriendsList extends React.Component {
     constructor(props){
         super(props);
 
-        this.props.getFriendsList();
+        this.props.getFriendsList(this.props.friendsIds);
     }
 
     removeFriend(id) {
@@ -34,7 +34,7 @@ class FriendsList extends React.Component {
         return (<nav className="friends-list">
             <h3>Friends List</h3>
             <ul>
-                { this.props.friends.map( this.renderFriend.bind(this) ) }
+                { this.props.friendsObjects.map( this.renderFriend.bind(this) ) }
             </ul>
         </nav>)
     }
@@ -42,7 +42,8 @@ class FriendsList extends React.Component {
 
 function mapStateToProps(state){
     return {
-        friends: state.friendsList.friendsObjects
+        friendsIds: state.friendsList.friendsIds,
+        friendsObjects: state.friendsList.friendsObjects
     }
 }
 

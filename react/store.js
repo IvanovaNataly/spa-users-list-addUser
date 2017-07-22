@@ -1,7 +1,6 @@
 import {createStore, applyMiddleware} from "redux";
 import appReducers from "./reducers";
 import LoginService from "./services/LoginService";
-import FriendsService from "./services/FriendsService";
 
 import { composeWithDevTools } from 'redux-devtools-extension';
 
@@ -20,7 +19,7 @@ const state = {
     },
     friendsList: {
         friendsIds: [],
-        friendsObjects: [] //FriendsService.get() ||
+        friendsObjects: []
     }
 };
 

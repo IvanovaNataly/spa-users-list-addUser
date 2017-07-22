@@ -7,7 +7,6 @@ export const GET_USER_RESPONSE = "getUserResponse";
 export const LOG_IN = "login";
 export const LOG_OUT = "logout";
 export const SET_POSTS = "setPosts";
-export const GET_FRIENDS_LIST_REQUEST = "getFriendsListRequest";
 export const GET_FRIENDS_LIST_RESPONSE = "getFriendsListResponse";
 export const ADD_TO_FRIENDS = "addToFriends";
 export const REMOVE_FRIEND = "removeFriend";

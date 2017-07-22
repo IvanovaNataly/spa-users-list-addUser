@@ -24,7 +24,7 @@ class UserPage extends React.Component {
     }
 
     onAddToFriends() {
-        this.props.addToFriends(this.props.user);
+        this.props.addToFriends(this.props.user.id);
     }
 
     render(){
@@ -50,7 +50,7 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
     return {
         getUser: id => dispatch( getUser(id) ),
-        addToFriends: user => dispatch( addToFriends(user) )
+        addToFriends: id => dispatch( addToFriends(id) )
     }
 }
 

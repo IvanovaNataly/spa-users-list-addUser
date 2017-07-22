@@ -42,28 +42,25 @@ export function getUser(id){
 }
 
 export function getFriendsList(){
-    // let friends = FriendsService.get() || [];
-    // return( { type: ACTIONS.GET_FRIENDS_LIST_RESPONSE, friends} )
     return dispatch => {
-        dispatch( {type: ACTIONS.GET_FRIENDS_LIST_REQUEST} );
-
         UsersService.getAllUsers()
             .then( users => {
-                let numbers = [1,2,3];
+                let numbers = FriendsService.get() ;
                 let friendsList = [];
                 users.filter(user => {
 
                     if (numbers.includes(user.id)) {
-                        friendsList.push( user) ;
+                        friendsList.push(user);
                     }
-                    dispatch( { type: ACTIONS.GET_FRIENDS_LIST_RESPONSE, friends: friendsList } )
+                    dispatch({type: ACTIONS.GET_FRIENDS_LIST_RESPONSE, friends: friendsList})
+                })
                 }) }
-            )
-    }
+
+
 }
 
-export function addToFriends(user) {
-    return( { type: ACTIONS.ADD_TO_FRIENDS, user} )
+export function addToFriends(id) {
+    return( { type: ACTIONS.ADD_TO_FRIENDS, id} )
 }
 
 export function removeFriend(id) {
