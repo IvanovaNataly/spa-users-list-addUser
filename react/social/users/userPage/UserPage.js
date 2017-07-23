@@ -1,8 +1,9 @@
 import React from "react";
 import {connect} from "react-redux";
 import UserDetails from "./UserDetails";
-import UserPosts from "./UserPosts"
-import {getUser, addToFriends} from "../../../actions/creators"
+import UserPosts from "./UserPosts";
+import Notification from "./Notification";
+import {getUser, addToFriends} from "../../../actions/creators";
 
 import "./user-page.scss";
 
@@ -27,12 +28,18 @@ class UserPage extends React.Component {
         this.props.addToFriends(this.props.user.id);
     }
 
+    notificatonEval() {
+        if  ( this.props.user )
+            return <Notification userName={ this.props.user }/>
+    }
+
     render(){
         if(this.props.isLoading)
             return <main className="user-page">Loading...</main>;
 
         return (<main className="user-page">
                     <button className="btn-add-friend" onClick={this.onAddToFriends.bind(this)}>Add To Friends</button>
+                    {this.notificatonEval()}
                     <UserDetails user={ this.props.user }/>
                     <UserPosts posts={ this.props.posts }/>
                 </main>)
@@ -43,7 +50,8 @@ function mapStateToProps(state){
     return {
         isLoading: state.friends.selectedUser.isLoading,
         user: state.friends.selectedUser.details,
-        posts: state.friends.selectedUser.posts
+        posts: state.friends.selectedUser.posts,
+        friendsIds: state.friendsList.friendsIds
     }
 }
 

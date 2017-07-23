@@ -6,7 +6,7 @@ import FriendsService from "../services/FriendsService";
 function friendsNumbersReducer(state = [], action){
     switch (action.type){
         case ADD_TO_FRIENDS:
-                let result = state.find( friend => action.id == friend.id );
+                let result = state.find( friend => action.id == friend );
             if (!result) {
                 FriendsService.set([action.id, ...state]);
                 return [action.id, ...state]
