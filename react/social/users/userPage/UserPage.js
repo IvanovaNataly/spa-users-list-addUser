@@ -22,7 +22,6 @@ class UserPage extends React.Component {
         if( match.params.id &&  match.params.id != this.props.match.params.id){
             this.props.getUser(match.params.id);
             this.notificationMsg = null;
-            this.buttonAppear = null;
         }
         if(friendsIds.length > this.props.friendsIds.length) {
             this.notificationMsg = this.props.user.name + " is your new friend now."
