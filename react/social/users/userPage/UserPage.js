@@ -13,14 +13,21 @@ class UserPage extends React.Component {
     constructor(props){
         super(props);
 
+        //this.state = {notificationMsg: null}
+
         if( props.match.params.id ){
             props.getUser(props.match.params.id);
         }
     }
 
-    componentWillReceiveProps( {match} ){
+    componentWillReceiveProps( {match, friendsIds} ){
         if( match.params.id &&  match.params.id != this.props.match.params.id){
             this.props.getUser(match.params.id);
+            this.notificationMsg = null;
+            this.buttonAppear = null;
+        }
+        if(friendsIds.length > this.props.friendsIds.length) {
+            this.notificationMsg = this.props.user.name + " is your new friend now."
         }
     }
 
@@ -28,17 +35,24 @@ class UserPage extends React.Component {
         this.props.addToFriends(this.props.user.id);
     }
 
-    notificatonEval() {
-        if  ( this.props.user )
-            return <Notification userName={ this.props.user }/>
+    buttonEval() {
+        if (!this.notificationMsg)
+            return <button className="btn-add-friend" onClick={this.onAddToFriends.bind(this)}>Add To Friends</button>
     }
 
-    render(){
+
+
+    notificatonEval() {
+        if (this.notificationMsg)
+            return <Notification msg={ this.notificationMsg } classHidden="notification" />
+    }
+
+    render() {
         if(this.props.isLoading)
             return <main className="user-page">Loading...</main>;
 
         return (<main className="user-page">
-                    <button className="btn-add-friend" onClick={this.onAddToFriends.bind(this)}>Add To Friends</button>
+                    {this.buttonEval()}
                     {this.notificatonEval()}
                     <UserDetails user={ this.props.user }/>
                     <UserPosts posts={ this.props.posts }/>

@@ -20,12 +20,18 @@ class FriendsList extends React.Component {
 
     removeFriend(id) {
         this.props.removeFriend(id);
+
     }
 
     renderFriend(friend, i){
         return <li key={i}>
-            <button onClick={ e => this.removeFriend(friend.id) }>Remove</button>
-            <NavLink exact activeStyle={ { color: "yellow" } } activeClassName="active" to={`/users/${friend.id}`}><Friend name={friend.name}/></NavLink>
+            <NavLink exact activeStyle={ { color: "yellow" } } activeClassName="active" to={`/users/${friend.id}`}>
+                <Friend name={friend.name}/>
+            </NavLink>
+            <div className="btn-container">
+                <button onClick={ e => this.removeFriend(friend.id) } className="btn-remove">Remove</button>
+            </div>
+
         </li>
     }
 

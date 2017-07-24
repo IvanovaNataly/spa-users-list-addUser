@@ -1,13 +1,22 @@
 import React from 'react';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class Notification extends React.Component {
     render() {
-             return (
-            <div className="notification hidden">
-
-                {this.props.user.name} is your new friends now. Send him your greetings?
-
-            </div>
+        return (
+            <CSSTransitionGroup
+                transitionName="fade"
+                transitionEnter={false}
+                transitionAppear={true}
+                transitionAppearTimeout={500}
+                transitionLeaveTimeout={1500}
+            >
+                <div className="notification">
+                    {this.props.msg}
+                </div>
+            </CSSTransitionGroup>
         )
     }
 }
+
+

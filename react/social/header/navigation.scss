@@ -3,9 +3,11 @@
 .navigation {
     background: $navBackground;
     color: $fontColor;
-    box-shadow: 4px 4px 0 2px rgba(0,0,0,.4);
-    padding: 20px;
-    margin: 20px;
+    -webkit-box-shadow: 0px 9px 23px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 9px 23px -7px rgba(0,0,0,0.75);
+    box-shadow: 0px 9px 23px -7px rgba(0,0,0,0.75);
+    padding: 20px 50px;
+    position: relative;
 
     a {
         color: $fontColor;
@@ -15,7 +17,27 @@
         padding: 10px;
 
         &.active {
-            border: 1px solid $fontColor;
+            border-bottom: 1px solid $fontColor;
+        }
+    }
+
+
+    button {
+        font-family: Arial;
+        color: #fff;
+        font-size: 16px;
+        background: $background;
+        padding: 8px 16px;
+        border: none;
+        -webkit-border-radius: 5;
+        -moz-border-radius: 5;
+        border-radius: 5px;
+        text-decoration: none;
+        position: absolute;
+        bottom: 12px;
+        right: 50px;
+        &:hover {
+            background-color: darken($background, 10%);
         }
     }
 }
