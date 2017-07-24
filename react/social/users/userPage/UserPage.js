@@ -13,8 +13,6 @@ class UserPage extends React.Component {
     constructor(props){
         super(props);
 
-        //this.state = {notificationMsg: null}
-
         if( props.match.params.id ){
             props.getUser(props.match.params.id);
         }
@@ -36,11 +34,9 @@ class UserPage extends React.Component {
     }
 
     buttonEval() {
-        if (!this.notificationMsg)
+        if (!this.props.friendsIds.find( id => this.props.user.id == id))
             return <button className="btn-add-friend" onClick={this.onAddToFriends.bind(this)}>Add To Friends</button>
     }
-
-
 
     notificatonEval() {
         if (this.notificationMsg)
