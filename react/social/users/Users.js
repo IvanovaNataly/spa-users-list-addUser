@@ -9,7 +9,7 @@ import '../../main.scss';
 export default class Users extends React.Component {
 
     render(){
-        return (<div>
+        return (<div className="users-container">
                     <UsersList/>
                     <Route path="/users/:id" component={UserPage}/>
                 </div>)

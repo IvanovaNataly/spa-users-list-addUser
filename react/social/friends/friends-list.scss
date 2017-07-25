@@ -28,7 +28,7 @@ $li-padding: 20px;
     }
   }
 
-  ul {
+  ul span{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -73,6 +73,19 @@ $li-padding: 20px;
       background-color: darken($contrastBackground, 10%);
     }
   }
+
+  .fade-leave {
+    transition: opacity 500ms ease-in;
+  }
+
+  .fade-leave {
+    opacity: 1;
+
+    &.fade-leave-active {
+      opacity: 0;
+    }
+  }
+
 
 
 }

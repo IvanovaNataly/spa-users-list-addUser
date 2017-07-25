@@ -5,6 +5,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {NavLink} from "react-router-dom";
 import {withRouter} from "react-router";
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 import {getFriendsList, removeFriend} from "../../actions/creators";
 import Friend from "./Friend";
 
@@ -40,7 +41,13 @@ class FriendsList extends React.Component {
         return (<nav className="friends-list">
             <h3>Friends List</h3>
             <ul>
-                { this.props.friendsObjects.map( this.renderFriend.bind(this) ) }
+                <CSSTransitionGroup
+                    transitionName="fade"
+                    transitionEnter={false}
+                    transitionLeaveTimeout={1500}
+                >
+                    { this.props.friendsObjects.map( this.renderFriend.bind(this) ) }
+                </CSSTransitionGroup>
             </ul>
         </nav>)
     }

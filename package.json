@@ -18,7 +18,12 @@
   "homepage": "https://github.com/roypeled/jan17-users-list#readme",
   "dependencies": {
     "file-loader": "^0.11.1",
+    "jasmine-core": "^2.6.4",
     "jquery": "^3.2.1",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-webpack": "^2.0.4",
     "react": "^15.5.4",
     "react-addons-css-transition-group": "^15.6.0",
     "react-dom": "^15.5.4",

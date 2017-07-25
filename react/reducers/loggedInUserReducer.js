@@ -6,7 +6,7 @@ export default function loggedInUserReducer(state = null, action){
         case LOG_OUT:
             return null;
         case LOG_IN:
-            return action.user;
+            return action.user || state;
     }
 
     return state;

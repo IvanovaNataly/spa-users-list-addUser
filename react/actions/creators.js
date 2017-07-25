@@ -23,20 +23,20 @@ export function setPosts(posts){
     return { type: ACTIONS.SET_POSTS, posts };
 }
 
-export function getUsersList(){
+export function getUsersList(usersService = UsersService){
     return dispatch => {
         dispatch( { type: ACTIONS.GET_USERS_LIST_REQUEST} );
 
-        UsersService.getAllUsers()
+        usersService.getAllUsers()
             .then( users => dispatch( { type: ACTIONS.GET_USERS_LIST_RESPONSE, users} ) )
     }
 }
 
-export function getUser(id){
+export function getUser(id, usersService = UsersService, postsService=PostsService){
     return dispatch => {
         dispatch( { type: ACTIONS.GET_USER_REQUEST} );
 
-        Promise.all([UsersService.getUser(id), PostsService.getPosts(id)])
+        Promise.all([usersService.getUser(id), postsService.getPosts(id)])
             .then( ([user,posts]) => dispatch( { type: ACTIONS.GET_USER_RESPONSE, user, posts} ));
     }
 }

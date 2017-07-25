@@ -2,7 +2,7 @@ import {combineReducers} from "redux";
 import {REMOVE_USER, GET_USER_RESPONSE, GET_USER_REQUEST} from "../actions";
 
 
-function detailsReducer(state = null, action){
+export function detailsReducer(state = null, action){
 
     switch (action.type){
         case GET_USER_RESPONSE:
