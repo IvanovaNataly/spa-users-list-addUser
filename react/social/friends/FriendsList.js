@@ -24,6 +24,10 @@ class FriendsList extends React.Component {
 
     }
 
+    removeBtnNotificationToggle() {
+        
+    }
+
     renderFriend(friend, i){
         return <li key={i}>
             <NavLink exact activeStyle={ { color: "yellow" } } activeClassName="active" to={`/users/${friend.id}`}>

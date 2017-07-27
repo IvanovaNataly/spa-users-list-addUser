@@ -1,6 +1,8 @@
 import React from 'react';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 
+import "./notification.scss";
+
 export default class Notification extends React.Component {
     render() {
         return (

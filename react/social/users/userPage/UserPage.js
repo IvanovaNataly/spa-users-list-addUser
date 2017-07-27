@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import UserDetails from "./UserDetails";
 import UserPosts from "./UserPosts";
-import Notification from "./Notification";
+import Notification from "../../../notifications/Notification";
 import {getUser, addToFriends} from "../../../actions/creators";
 
 import "./user-page.scss";

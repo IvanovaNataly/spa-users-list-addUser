@@ -16,7 +16,7 @@ class UsersList extends React.Component {
 
     renderUser(user, i){
         return <li key={i}>
-                    <NavLink exact activeStyle={ { color: "yellow" } } activeClassName="active" to={`/users/${user.id}`}>{ user.name }</NavLink>
+                    <NavLink exact activeStyle={ { color: "#f7cac9" } } activeClassName="active" to={`/users/${user.id}`}>{ user.name }</NavLink>
                 </li>
     }
 
