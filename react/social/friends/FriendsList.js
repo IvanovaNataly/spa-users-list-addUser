@@ -24,15 +24,15 @@ class FriendsList extends React.Component {
 
     removeFriend(friend) {
         this.props.removeFriend(friend.id);
-        this.state.notificationMsg = friend.name + " is not your friend now."
+        this.setState({notificationMsg : friend.name + " is not your friend now."});
         setTimeout(() => {
-            this.state.notificationMsg = null;
+            this.setState({notificationMsg : null});
         }, 3000);
     }
 
     notificatonEval() {
         if (this.state.notificationMsg)
-            return <Notification msg={ this.state.notificationMsg } specialClass=" friends-list-notify" />
+            return <Notification msg={ this.state.notificationMsg } specialClass=" friends-list-notify"/>
     }
 
     renderFriend(friend, i){
@@ -47,14 +47,9 @@ class FriendsList extends React.Component {
     }
 
     render(){
-        var note = (this.state.notificationMsg) ? <Notification msg={ this.state.notificationMsg } specialClass=" friends-list-notify" /> : '';
         return (<nav className="friends-list">
             <h3>Friends List</h3>
-            {/*{this.notificatonEval()}*/}
-            {/*{note}*/}
-            <p>
-                {this.state.notificationMsg}
-            </p>
+            <div className="notify-container"> {this.notificatonEval()}</div>
             <ul>
                 <CSSTransitionGroup
                     transitionName="fade"

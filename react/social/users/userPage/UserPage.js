@@ -12,7 +12,9 @@ class UserPage extends React.Component {
 
     constructor(props){
         super(props);
-
+        this.state = {
+            notificationMsg: null
+        }
         if( props.match.params.id ){
             props.getUser(props.match.params.id);
         }
@@ -21,15 +23,17 @@ class UserPage extends React.Component {
     componentWillReceiveProps( {match, friendsIds} ){
         if( match.params.id &&  match.params.id != this.props.match.params.id){
             this.props.getUser(match.params.id);
-            this.notificationMsg = null;
         }
         if(friendsIds.length > this.props.friendsIds.length) {
-            this.notificationMsg = this.props.user.name + " is your new friend now."
+            this.setState({notificationMsg : this.props.user.name + " is your new friend now."});
         }
     }
 
     onAddToFriends() {
         this.props.addToFriends(this.props.user.id);
+        setTimeout(() => {
+            this.setState({notificationMsg : null});
+        }, 3000);
     }
 
     buttonEval() {
@@ -38,8 +42,8 @@ class UserPage extends React.Component {
     }
 
     notificatonEval() {
-        if (this.notificationMsg)
-            return <Notification msg={ this.notificationMsg } specialClass=" user-page-notify"/>
+        if (this.state.notificationMsg)
+            return <Notification msg={ this.state.notificationMsg } specialClass=" user-page-notify"/>
     }
 
     render() {
