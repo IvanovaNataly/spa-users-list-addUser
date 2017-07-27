@@ -39,7 +39,7 @@ class UserPage extends React.Component {
 
     notificatonEval() {
         if (this.notificationMsg)
-            return <Notification msg={ this.notificationMsg } classHidden="notification" />
+            return <Notification msg={ this.notificationMsg } specialClass=" user-page-notify"/>
     }
 
     render() {

@@ -8,6 +8,7 @@ import {withRouter} from "react-router";
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 import {getFriendsList, removeFriend} from "../../actions/creators";
 import Friend from "./Friend";
+import Notification from "../../notifications/Notification";
 
 import "./friends-list.scss";
 
@@ -15,17 +16,23 @@ class FriendsList extends React.Component {
 
     constructor(props){
         super(props);
-
+        this.state = {
+            notificationMsg: null
+        }
         this.props.getFriendsList();
     }
 
-    removeFriend(id) {
-        this.props.removeFriend(id);
-
+    removeFriend(friend) {
+        this.props.removeFriend(friend.id);
+        this.state.notificationMsg = friend.name + " is not your friend now."
+        setTimeout(() => {
+            this.state.notificationMsg = null;
+        }, 3000);
     }
 
-    removeBtnNotificationToggle() {
-        
+    notificatonEval() {
+        if (this.state.notificationMsg)
+            return <Notification msg={ this.state.notificationMsg } specialClass=" friends-list-notify" />
     }
 
     renderFriend(friend, i){
@@ -34,16 +41,20 @@ class FriendsList extends React.Component {
                 <Friend name={friend.name}/>
             </NavLink>
             <div className="btn-container">
-                <button onClick={ e => this.removeFriend(friend.id) } className="btn-remove">Remove</button>
+                <button onClick={ e => this.removeFriend(friend) } className="btn-remove">Remove</button>
             </div>
-
         </li>
     }
 
     render(){
-
+        var note = (this.state.notificationMsg) ? <Notification msg={ this.state.notificationMsg } specialClass=" friends-list-notify" /> : '';
         return (<nav className="friends-list">
             <h3>Friends List</h3>
+            {/*{this.notificatonEval()}*/}
+            {/*{note}*/}
+            <p>
+                {this.state.notificationMsg}
+            </p>
             <ul>
                 <CSSTransitionGroup
                     transitionName="fade"

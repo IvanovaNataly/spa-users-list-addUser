@@ -13,7 +13,7 @@ export default class Notification extends React.Component {
                 transitionAppearTimeout={500}
                 transitionLeaveTimeout={1500}
             >
-                <div className="notification">
+                <div className={"notification " + this.props.specialClass}>
                     {this.props.msg}
                 </div>
             </CSSTransitionGroup>

@@ -7,9 +7,6 @@
   min-width: 500px;
   height: 70px;
   line-height: 70px;
-  position: absolute;
-  top: 40px;
-  right: 0;
   z-index: 999999;
   margin: 0 0 6px;
   padding: 0 15px;
@@ -46,4 +43,10 @@
   &.fade-leave-active {
     opacity: 0;
   }
+}
+
+.user-page-notify {
+  position: absolute;
+  top: 40px;
+  right: 0;
 }
