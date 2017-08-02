@@ -29,10 +29,15 @@ class UserPage extends React.Component {
         }
     }
 
+    componentWillUnmount() {
+        if (this.timer)
+            clearTimeout(this.timer);
+    }
+
     onAddToFriends() {
         this.props.addToFriends(this.props.user.id);
         setTimeout(() => {
-            this.setState({notificationMsg : null});
+            this.timer=this.setState({notificationMsg : null});
         }, 3000);
     }
 

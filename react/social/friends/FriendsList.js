@@ -25,9 +25,15 @@ class FriendsList extends React.Component {
     removeFriend(friend) {
         this.props.removeFriend(friend.id);
         this.setState({notificationMsg : friend.name + " is not your friend now."});
-        setTimeout(() => {
+        this.timer = setTimeout(() => {
             this.setState({notificationMsg : null});
         }, 3000);
+
+    }
+
+    componentWillUnmount(){
+        if (this.timer)
+            clearTimeout(this.timer);
     }
 
     notificatonEval() {
